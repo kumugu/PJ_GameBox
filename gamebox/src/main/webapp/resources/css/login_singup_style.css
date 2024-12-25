@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+.body {
+	position: fixed;
+	
+}
+/* 로그인 페이지 스타일 */
+.login-container {
+    max-width: 600px; /* 기존 400px에서 600px로 조정 */
+    margin: 120px auto;
+    background-color: #1f1f1f;
+    padding: 120px; /* 패딩을 조금 더 넉넉하게 */
+    border-radius: 8px;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* 조금 더 부드러운 그림자 효과 */
+}
+
+.signup-container {
+	max-width: 600px;
+    margin: 160px auto;
+    margin-top: 130px;
+    background-color: #1f1f1f;
+    padding-top: 50px; 
+    padding-bottom: 50px; 
+    padding-left: 150px; 
+    padding-right: 150px; 
+    border-radius: 8px;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); 
+}
+
+.login-container h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #fff;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.signup-link {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.signup-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}

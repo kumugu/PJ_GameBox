@@ -1,0 +1,19 @@
+# Eclipse settings
+.metadata/
+Servers/
+*.log
+
+# Build and runtime files
+/WEB-INF/classes/
+/WEB-INF/lib/
+/target/
+*.class
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# IDE-specific files
+.classpath
+.project
+.settings/
