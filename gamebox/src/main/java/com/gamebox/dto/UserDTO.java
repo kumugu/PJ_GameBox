@@ -2,11 +2,10 @@ package com.gamebox.dto;
 
 public class UserDTO {
     private int userId;
-    private String email;
     private String password;
     private String name;
+    private String email;
     private String role;
-    private String createdAt;
     
     
 	public int getUserId() {
@@ -14,12 +13,6 @@ public class UserDTO {
 	}
 	public void setUserId(int userId) {
 		this.userId = userId;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
 	}
 	public String getPassword() {
 		return password;
@@ -33,20 +26,17 @@ public class UserDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public String getRole() {
 		return role;
 	}
 	public void setRole(String role) {
 		this.role = role;
 	}
-	public String getCreatedAt() {
-		return createdAt;
-	}
-	public void setCreatedAt(String createdAt) {
-		this.createdAt = createdAt;
-	}
 
-    // Getters and Setters
-   
-    
 }
