@@ -8,13 +8,13 @@ import com.gamebox.dto.UserDTO;
 public class SignupCommand implements Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        int userId = Integer.parseInt(request.getParameter("userId")); 
+//        int userId = Integer.parseInt(request.getParameter("userId")); 
         String password = request.getParameter("password");
         String name = request.getParameter("name");
         String email = request.getParameter("email");
 
         UserDTO user = new UserDTO();
-        user.setUserId(userId);
+//        user.setUserId(userId);
         user.setPassword(password); 
         user.setName(name);
         user.setEmail(email);
