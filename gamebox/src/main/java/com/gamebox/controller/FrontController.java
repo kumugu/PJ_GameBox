@@ -18,11 +18,22 @@ public class FrontController extends HttpServlet {
     @Override
     public void init() throws ServletException {
         // Command 등록
-    	commandMap.put("/user_home.do", new com.gamebox.action.UserHomeCommand());
-    	commandMap.put("/signup.do", new com.gamebox.action.SignupCommand());
-        commandMap.put("/login.do", new com.gamebox.action.LoginCommand());
-        commandMap.put("/logout.do", new com.gamebox.action.LogoutCommand());
-        commandMap.put("/admin_home.do", new com.gamebox.action.AdminHomeCommand());
+    	
+    	// 관리자 계정 메뉴 
+	    commandMap.put("/admin_home.do", new com.gamebox.action.AdminHomeCommand());		// 관리자 메뉴 진입
+	    commandMap.put("/manage_users.do", new com.gamebox.action.ManageUsersCommand());	// 관리자 메뉴 - 회원관리(CRUD) 
+	    commandMap.put("/add_user_form.do", new com.gamebox.action.AddUserFormCommand());	// 관리자 메뉴 - 회원관리 - 회원추가 진입
+	    commandMap.put("/add_user.do", new com.gamebox.action.AddUserCommand());			// 관리자 메뉴 - 회원관리 - 회원추가 처리
+	    commandMap.put("/edit_user.do", new com.gamebox.action.EditUserCommand());			// 관리자 메뉴 - 회원관리 - 회원수정 진입
+	    
+    	// 일반 계정 메뉴
+        commandMap.put("/user_home.do", new com.gamebox.action.UserHomeCommand());			// 메인 페이지(index.jsp)
+	    commandMap.put("/signup_form.do", new com.gamebox.action.SignupFormCommand());		// 회원가입 진입
+    	commandMap.put("/signup.do", new com.gamebox.action.SignupCommand());				// 회원가입 처리
+        commandMap.put("/login.do", new com.gamebox.action.LoginCommand());					// 로그인
+        commandMap.put("/logout.do", new com.gamebox.action.LogoutCommand());				// 로그아웃
+
+        
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -47,10 +58,18 @@ public class FrontController extends HttpServlet {
 
         if (command != null) {
             String view = command.execute(request, response);
+
+            // view가 null인지 확인
+            if (view == null || view.isEmpty()) {
+                response.sendError(HttpServletResponse.SC_NOT_FOUND, "View path not found");
+                return;
+            }
+
             RequestDispatcher dispatcher = request.getRequestDispatcher(view);
             dispatcher.forward(request, response);
         } else {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            response.sendError(HttpServletResponse.SC_NOT_FOUND, "Command not found");
         }
     }
+
 }

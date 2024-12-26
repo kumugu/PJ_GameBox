@@ -13,21 +13,17 @@
         <h1>회원가입</h1>
         
 	    <form action="signup.do" method="post" class="login-form">
-	    	<div class="form-group">
-		        <label for="userId">User ID:</label>
-		        <input type="text" id="userId" name="userId" required><br>
-			</div>
 			<div class="form-group">
+			<div class="form-group">
+	        	<label for="email">Email:</label>
+	        	<input type="email" id="email" name="email" required><br>
+			</div>
 		        <label for="password">Password:</label>
 		        <input type="password" id="password" name="password" required><br>
 			</div>
 			<div class="form-group">
 		        <label for="name">Name:</label>
 		        <input type="text" id="name" name="name" required><br>
-			</div>
-			<div class="form-group">
-	        	<label for="email">Email:</label>
-	        	<input type="email" id="email" name="email" required><br>
 			</div>
 	        <button type="submit" class="btn btn-primary">Signup</button>
 	    </form>

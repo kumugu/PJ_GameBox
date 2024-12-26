@@ -7,12 +7,11 @@ public class LogoutCommand implements Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         // 세션 무효화
-        request.getSession().invalidate();
-        
-        // 리다이렉트
-        response.sendRedirect(request.getContextPath() + "/index.jsp");
-        
-        // 리다이렉트 후에는 JSP를 반환하지 않음
-        return null;
+        if (request.getSession(false) != null) { // 세션이 있는 경우에만 무효화
+            request.getSession().invalidate();
+        }
+
+        // 리다이렉트 후 반환값 없음
+        return "index.jsp";
     }
 }
