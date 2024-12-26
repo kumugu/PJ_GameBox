@@ -18,11 +18,23 @@ public class FrontController extends HttpServlet {
     @Override
     public void init() throws ServletException {
         // Command 등록
-    	commandMap.put("/user_home.do", new com.gamebox.action.UserHomeCommand());
+    	
+    	// admin menu 
+	    commandMap.put("/admin_home.do", new com.gamebox.action.AdminHomeCommand());
+	    commandMap.put("/manage_users.do", new com.gamebox.action.ManageUsersCommand());
+	    commandMap.put("/edit_user.do", new com.gamebox.action.EditUserCommand());
+	    commandMap.put("/add_user_form.do", new com.gamebox.action.AddUserFormCommand());
+	    commandMap.put("/add_user.do", new com.gamebox.action.AddUserCommand());
+
+
+	    
+    	
     	commandMap.put("/signup.do", new com.gamebox.action.SignupCommand());
         commandMap.put("/login.do", new com.gamebox.action.LoginCommand());
         commandMap.put("/logout.do", new com.gamebox.action.LogoutCommand());
-        commandMap.put("/admin_home.do", new com.gamebox.action.AdminHomeCommand());
+       
+        commandMap.put("/user_home.do", new com.gamebox.action.UserHomeCommand());
+        
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
