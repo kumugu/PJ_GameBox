@@ -12,25 +12,24 @@ import com.gamebox.util.DBConnection;
 public class UserDAO {
 
 	// 회원 가입(일반) 
-    public boolean registerUser(UserDTO user) {
-        String sql = "INSERT INTO Users (user_id, password, name, email, role) VALUES (?, ?, ?, ?, ?)";
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+	public boolean registerUser(UserDTO user) {
+	    String sql = "INSERT INTO Users (user_id, password, name, email, role) VALUES (user_seq.NEXTVAL, ?, ?, ?, 'USER')";
+	    try (Connection conn = DBConnection.getConnection();
+	         PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            pstmt.setInt(1, user.getUserId());
-            pstmt.setString(2, user.getPassword());
-            pstmt.setString(3, user.getName());
-            pstmt.setString(4, user.getEmail());
-            pstmt.setString(5, user.getRole());
+	        pstmt.setString(1, user.getPassword());
+	        pstmt.setString(2, user.getName());
+	        pstmt.setString(3, user.getEmail());
 
-            int result = pstmt.executeUpdate();
-            return result > 0;
+	        int result = pstmt.executeUpdate();
+	        return result > 0;
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return false;
+	}
+
 
     // 로그인(일반/관리자 분기) 
     public UserDTO loginUser(String email, String password) {
@@ -56,7 +55,7 @@ public class UserDAO {
     }
     
     
-    // 회원 추가
+    // 회원 추가(관리자 메뉴)
     public void addUser(UserDTO user) throws Exception {
         String sql = "INSERT INTO Users (user_id, name, email, password, role) VALUES (user_seq.NEXTVAL, ?, ?, ?, ?)";
 
@@ -65,7 +64,7 @@ public class UserDAO {
 
             pstmt.setString(1, user.getName());
             pstmt.setString(2, user.getEmail());
-            pstmt.setString(3, user.getPassword()); // 비밀번호 추가
+            pstmt.setString(3, user.getPassword()); 
             pstmt.setString(4, user.getRole());
             pstmt.executeUpdate();
         }

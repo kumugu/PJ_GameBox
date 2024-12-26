@@ -19,16 +19,15 @@ public class FrontController extends HttpServlet {
     public void init() throws ServletException {
         // Command 등록
     	
-    	// admin menu 
+    	// 관리자 메뉴 
 	    commandMap.put("/admin_home.do", new com.gamebox.action.AdminHomeCommand());
 	    commandMap.put("/manage_users.do", new com.gamebox.action.ManageUsersCommand());
 	    commandMap.put("/edit_user.do", new com.gamebox.action.EditUserCommand());
 	    commandMap.put("/add_user_form.do", new com.gamebox.action.AddUserFormCommand());
 	    commandMap.put("/add_user.do", new com.gamebox.action.AddUserCommand());
 
-
-	    
-    	
+    	// 일반 메뉴
+	    commandMap.put("/signup_form.do", new com.gamebox.action.SignupFormCommand());
     	commandMap.put("/signup.do", new com.gamebox.action.SignupCommand());
         commandMap.put("/login.do", new com.gamebox.action.LoginCommand());
         commandMap.put("/logout.do", new com.gamebox.action.LogoutCommand());
@@ -59,10 +58,18 @@ public class FrontController extends HttpServlet {
 
         if (command != null) {
             String view = command.execute(request, response);
+
+            // view가 null인지 확인
+            if (view == null || view.isEmpty()) {
+                response.sendError(HttpServletResponse.SC_NOT_FOUND, "View path not found");
+                return;
+            }
+
             RequestDispatcher dispatcher = request.getRequestDispatcher(view);
             dispatcher.forward(request, response);
         } else {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            response.sendError(HttpServletResponse.SC_NOT_FOUND, "Command not found");
         }
     }
+
 }

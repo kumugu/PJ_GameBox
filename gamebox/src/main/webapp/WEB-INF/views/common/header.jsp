@@ -23,7 +23,7 @@
 			    </c:when>
 			    <c:otherwise>
 			        <a href="login.do" class="login-btn">로그인</a>
-			        <a href="signup.do" class="signup-btn">회원가입</a>
+			        <a href="signup_form.do" class="signup-btn">회원가입</a>
 			    </c:otherwise>
 			</c:choose>
         </div>
