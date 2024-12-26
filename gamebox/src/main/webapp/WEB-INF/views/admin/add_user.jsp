@@ -10,7 +10,7 @@
 <body>
     <h1>회원 추가</h1>
 
-	<form action="add_user.do" method="post">
+	<form action="manage_users.do" method="post">
         <input type="hidden" name="action" value="add">
 
         <div class="form-group">

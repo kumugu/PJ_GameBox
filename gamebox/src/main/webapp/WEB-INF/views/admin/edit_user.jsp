@@ -3,21 +3,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>${param.action == 'add' ? '회원 추가' : '회원 수정'} | GameBox</title>
+    <title>회원 수정 | GameBox</title>
     <link rel="stylesheet" href="/resources/css/admin_user_style.css">
 </head>
 <%@ include file="/WEB-INF/views/admin/admin_header.jsp" %>
 <body>
-    <h1>${param.action == 'add' ? '회원 추가' : '회원 수정'}</h1>
+    <h1>회원 수정</h1>
 
     <form action="manage_users.do" method="post">
         <!-- 동작 구분 -->
-        <input type="hidden" name="action" value="${param.action}">
+        <input type="hidden" name="action" value="edit">
 
         <!-- 회원 ID (수정 시 필요) -->
-        <c:if test="${param.action == 'edit'}">
-            <input type="hidden" name="userId" value="${user.userId}">
-        </c:if>
+        <input type="hidden" name="userId" value="${user.userId}">
 
         <div class="form-group">
             <label for="name">이름:</label>
@@ -37,7 +35,7 @@
             </select>
         </div>
 
-        <button type="submit" class="btn btn-primary">${param.action == 'add' ? '추가' : '수정'}</button>
+        <button type="submit" class="btn btn-primary">수정</button>
     </form>
 </body>
 </html>

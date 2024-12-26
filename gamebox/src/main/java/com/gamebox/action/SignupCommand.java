@@ -9,6 +9,13 @@ public class SignupCommand implements Command {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        // 요청 데이터 인코딩 설정
+        request.setCharacterEncoding("UTF-8");
+
+        // 응답 데이터 인코딩 설정
+        response.setContentType("text/html; charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
         // 입력값 가져오기
         String email = request.getParameter("email");
         String password = request.getParameter("password");

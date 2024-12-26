@@ -10,6 +10,13 @@ public class ManageUsersCommand implements Command {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        // 요청 데이터 인코딩 설정
+        request.setCharacterEncoding("UTF-8");
+
+        // 응답 데이터 인코딩 설정
+        response.setContentType("text/html; charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
+    	
         String action = request.getParameter("action");
         UserDAO dao = new UserDAO();
 

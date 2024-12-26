@@ -17,8 +17,8 @@ public class AddUserCommand implements Command {
 
         UserDTO user = new UserDTO();
         user.setName(name);
-        user.setEmail(email);
-        user.setPassword(password); // 비밀번호 추가
+        user.setEmail(email);        
+        user.setPassword(password); 
         user.setRole(role);
 
         UserDAO dao = new UserDAO();

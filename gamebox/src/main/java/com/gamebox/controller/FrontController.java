@@ -19,20 +19,20 @@ public class FrontController extends HttpServlet {
     public void init() throws ServletException {
         // Command 등록
     	
-    	// 관리자 메뉴 
-	    commandMap.put("/admin_home.do", new com.gamebox.action.AdminHomeCommand());
-	    commandMap.put("/manage_users.do", new com.gamebox.action.ManageUsersCommand());
-	    commandMap.put("/edit_user.do", new com.gamebox.action.EditUserCommand());
-	    commandMap.put("/add_user_form.do", new com.gamebox.action.AddUserFormCommand());
-	    commandMap.put("/add_user.do", new com.gamebox.action.AddUserCommand());
+    	// 관리자 계정 메뉴 
+	    commandMap.put("/admin_home.do", new com.gamebox.action.AdminHomeCommand());		// 관리자 메뉴 진입
+	    commandMap.put("/manage_users.do", new com.gamebox.action.ManageUsersCommand());	// 관리자 메뉴 - 회원관리(CRUD) 
+	    commandMap.put("/add_user_form.do", new com.gamebox.action.AddUserFormCommand());	// 관리자 메뉴 - 회원관리 - 회원추가 진입
+	    commandMap.put("/add_user.do", new com.gamebox.action.AddUserCommand());			// 관리자 메뉴 - 회원관리 - 회원추가 처리
+	    commandMap.put("/edit_user.do", new com.gamebox.action.EditUserCommand());			// 관리자 메뉴 - 회원관리 - 회원수정 진입
+	    
+    	// 일반 계정 메뉴
+        commandMap.put("/user_home.do", new com.gamebox.action.UserHomeCommand());			// 메인 페이지(index.jsp)
+	    commandMap.put("/signup_form.do", new com.gamebox.action.SignupFormCommand());		// 회원가입 진입
+    	commandMap.put("/signup.do", new com.gamebox.action.SignupCommand());				// 회원가입 처리
+        commandMap.put("/login.do", new com.gamebox.action.LoginCommand());					// 로그인
+        commandMap.put("/logout.do", new com.gamebox.action.LogoutCommand());				// 로그아웃
 
-    	// 일반 메뉴
-	    commandMap.put("/signup_form.do", new com.gamebox.action.SignupFormCommand());
-    	commandMap.put("/signup.do", new com.gamebox.action.SignupCommand());
-        commandMap.put("/login.do", new com.gamebox.action.LoginCommand());
-        commandMap.put("/logout.do", new com.gamebox.action.LogoutCommand());
-       
-        commandMap.put("/user_home.do", new com.gamebox.action.UserHomeCommand());
         
     }
 
