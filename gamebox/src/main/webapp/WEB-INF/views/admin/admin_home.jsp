@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="./resources/css/admin_home_style.css">
 </head>
 <%@ include file="/WEB-INF/views/admin/admin_header.jsp" %>
+
+
 <body>
 	<c:if test="${not empty adminAlert}">
 	    <div class="alert-message">
@@ -35,6 +37,7 @@
 	        </li>
 	    </ul>
 	</div>
+
 
 
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

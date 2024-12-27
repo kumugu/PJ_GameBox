@@ -7,8 +7,9 @@
     <div class="navbar">
         <div class="logo">
             <a href="index.jsp">GameBox</a>
+            <a href="admin_home.do">관리자 페이지</a>
         </div>
-        <h1>관리자 페이지</h1>
+        
         <div class="user-info">
 			<c:choose>
 			    <c:when test="${not empty sessionScope.user}">
