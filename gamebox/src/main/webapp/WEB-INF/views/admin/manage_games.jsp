@@ -42,8 +42,8 @@
             <input type="number" id="price" name="price" step="0.01" required>
             
             <div class="buttons">
-                <button type="submit">등록</button>
                 <button type="button" onclick="window.location.href='adminPage.jsp'">취소</button>
+                <button type="submit">등록</button>
             </div>
         </form>
     </div>
