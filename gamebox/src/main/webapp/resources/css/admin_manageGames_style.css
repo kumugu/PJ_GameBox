@@ -3,7 +3,7 @@
 /* 공통 스타일 */
 body { 
     background-color: #333; 
-    color: white;
+    color: #333;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -94,33 +94,34 @@ h1 {
 }
 
 /* 테이블 */
-.user-table {
+.game-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
-.user-table td {
+.game-table td {
     color: #333;
 }
 
-.user-table th, .user-table td {
+.game-table th, .game-table td {
     text-align: center;
     padding: 10px;
     border: 1px solid #ddd;
 }
 
-.user-table th {
+.game-table th {
     background-color: #f8f9fa;
     color: #333;
     font-weight: bold;
 }
 
-.user-table tr:nth-child(even) {
+.game-table tr:nth-child(even) {
     background-color: #f2f2f2;
+    color: #333;
 }
 
-.user-table tr:hover {
+.game-table tr:hover {
     background-color: #e9ecef;
 }
 

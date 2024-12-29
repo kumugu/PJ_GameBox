@@ -11,12 +11,11 @@
 
     <div class="form-container">
         <h1>게임 추가</h1>
-        <form action="addGame" method="post" enctype="multipart/form-data" >
+        <form action="add_games.do" method="post">
             <label for="title">게임 제목:</label>
             <input type="text" id="title" name="title" required>
             
-            <label for="image">게임 이미지:</label>
-            <input type="file" id="image" name="image" accept="image/*">
+            <!-- 이미지 입력 필드 제거 -->
             
             <label for="description">게임 설명:</label>
             <textarea id="description" name="description"></textarea>
@@ -42,7 +41,7 @@
             <input type="number" id="price" name="price" step="0.01" required>
             
             <div class="buttons">
-                <button type="button" onclick="window.location.href='adminPage.jsp'">취소</button>
+                <button type="button" onclick="window.location.href='manage_games.do'">취소</button>
                 <button type="submit">등록</button>
             </div>
         </form>
