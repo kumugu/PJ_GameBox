@@ -25,7 +25,7 @@
 
     <!-- 게임 추가 버튼 -->
     <div class="button-container">
-        <a href="add_game_form.do" class="btn btn-add">게임 추가</a>
+        <a href="manage_games.do?action=add_form" class="btn btn-add">게임 추가</a>
     </div>
 
     <!-- 게임 목록 테이블 -->
@@ -51,9 +51,10 @@
                     <td>${game.developer}</td>
                     <td>${game.price}</td>
                     <td>${game.releaseDate}</td>
-                    <td><a href="edit_game.do?action=edit&gameId=${game.gameId}" class="btn btn-edit">수정</a></td>
-                    <td><a href="manage_games.do?action=delete&gameId=${game.gameId}" class="btn btn-delete" 
-                           onclick="return confirm('정말 삭제하시겠습니까?');">삭제</a></td>
+                    <td><a href="manage_games.do?action=edit_form&gameId=${game.gameId}" class="btn btn-edit">수정</a></td>
+					<td><a href="manage_games.do?action=delete&gameId=${game.gameId}" class="btn btn-delete" 
+						onclick="return confirm('정말 삭제하시겠습니까?');">삭제</a></td>
+                           
                 </tr>
             </c:forEach>
         </tbody>

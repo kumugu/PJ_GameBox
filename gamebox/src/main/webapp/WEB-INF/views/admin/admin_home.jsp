@@ -12,11 +12,11 @@
 
 
 <body>
-	<c:if test="${not empty adminAlert}">
+<%-- 	<c:if test="${not empty adminAlert}">
 	    <div class="alert-message">
 	        ${adminAlert}
 	    </div>
-	</c:if>
+	</c:if> --%>
 	
 	<div class="sidebar">
 	    <ul class="folder-structure">
