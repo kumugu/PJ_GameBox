@@ -15,7 +15,7 @@
         
         <nav>
             <a href="index.jsp">홈</a>
-            <a href="games.jsp">상점</a>
+            <a href="shop.do">상점</a>
             <a href="community.jsp">커뮤니티</a>
             <a href="library.jsp">마이페이지</a>
             <a href="support.jsp">지원</a>
