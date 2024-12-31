@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" href="./resources/css/header_style.css">
 </head>
+
 <header>
     <div class="navbar">
         <div class="logo">

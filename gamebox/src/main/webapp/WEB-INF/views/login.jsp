@@ -2,12 +2,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
- <%@ include file="/WEB-INF/views/common/header.jsp" %>
+
 <head>
     <title>Login</title>
     <link rel="stylesheet" href="./resources/css/login_singup_style.css">
     <link rel="stylesheet" href="./resources/css/style.css">
 </head>
+
+ <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <body>
     <div class="login-container">
         <h1>로그인</h1>
@@ -30,4 +32,5 @@
     </div>
 </body>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
+
 </html>

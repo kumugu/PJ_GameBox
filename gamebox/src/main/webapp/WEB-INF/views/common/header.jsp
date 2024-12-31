@@ -3,11 +3,16 @@
 <head>
     <link rel="stylesheet" href="./resources/css/header_style.css">
 </head>
+
 <header>
     <div class="navbar">
         <div class="logo">
             <a href="index.jsp">GameBox</a>
+             <c:if test="${sessionScope.user.role == 'ADMIN'}">
+                <a href="admin_home.do">관리자 페이지</a>
+            </c:if>
         </div>
+        
         <nav>
             <a href="index.jsp">홈</a>
             <a href="games.jsp">상점</a>
@@ -15,6 +20,7 @@
             <a href="library.jsp">마이페이지</a>
             <a href="support.jsp">지원</a>
         </nav>
+        
         <div class="user-info">
 			<c:choose>
 			    <c:when test="${not empty sessionScope.user}">

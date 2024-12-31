@@ -3,21 +3,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
     <title>Admin Home|GameBox</title>
     <link rel="stylesheet" href="./resources/css/admin_home_style.css">
 </head>
+
 <%@ include file="/WEB-INF/views/admin/admin_header.jsp" %>
-
-
 <body>
-<%-- 	<c:if test="${not empty adminAlert}">
-	    <div class="alert-message">
-	        ${adminAlert}
-	    </div>
-	</c:if> --%>
-	
 	<div class="sidebar">
 	    <ul class="folder-structure">
 	        <li>
@@ -37,10 +31,8 @@
 	        </li>
 	    </ul>
 	</div>
-
-
-
-<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
+<%@ include file="/WEB-INF/views/common/footer.jsp" %>
+
 </html>
 
