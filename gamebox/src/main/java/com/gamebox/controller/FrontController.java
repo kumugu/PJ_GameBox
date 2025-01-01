@@ -33,7 +33,8 @@ public class FrontController extends HttpServlet {
     	// 일반 메뉴
         commandMap.put("/user_home.do", new com.gamebox.action.UserHomeCommand());			// 메인 페이지(index.jsp)
         commandMap.put("/shop.do", new com.gamebox.action.ShopCommand());					// 상점 페이지(shop.jsp)
-        
+        commandMap.put("/gameDetail.do", new com.gamebox.action.GameDetailCommand()); 		// 상점 상세 페이지(shopDetail.jsp)
+
         
      	// 회원가입 및 로그인
 	    commandMap.put("/signup_form.do", new com.gamebox.action.SignupFormCommand());		// 회원가입 진입

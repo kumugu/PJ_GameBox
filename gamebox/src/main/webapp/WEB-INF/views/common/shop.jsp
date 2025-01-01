@@ -33,15 +33,17 @@
         </thead>
         <tbody>
             <c:forEach var="game" items="${gameList}">
-                <tr>
-                    <td><img src="${pageContext.request.contextPath}${game.imagePath}" alt="${game.title}" class="game-image"></td>
-                    <td>${game.title}</td>
-                    <td>${game.genre}</td>
-                    <td>${game.releaseDate}</td>
-                    <td>${game.rating}</td>
-                    <td>₩${game.price}</td>
-                    <td><button class="cart-btn" onclick="addToCart('${game.gameId}')">장바구니에 추가</button></td>
-                </tr>
+				<tr class="game-row" onclick="window.location.href='${pageContext.request.contextPath}/gameDetail.do?gameId=${game.gameId}'">
+				    <td>
+				        <img src="${pageContext.request.contextPath}${game.imagePath}" alt="${game.title}" class="game-image">
+				    </td>
+				    <td>${game.title}</td>
+				    <td>${game.genre}</td>
+				    <td>${game.releaseDate}</td>
+				    <td>${game.rating}</td>
+				    <td>₩${game.price}</td>
+				    <td><button class="cart-btn" onclick="addToCart('${game.gameId}'); event.stopPropagation();">장바구니에 추가</button></td>
+				</tr>
             </c:forEach>
         </tbody>
     </table>

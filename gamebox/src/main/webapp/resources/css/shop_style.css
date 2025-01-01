@@ -15,7 +15,7 @@ body {
 }
 
 .game-table td {
-    border: 1px solid #242b34;
+    border: none;
     padding: 10px;
 }
 
@@ -29,6 +29,13 @@ body {
 .game-image {
     width: 100px;
     height: 80px;
+}
+
+.game-row:hover {
+    background-color: #8080c0; /* 행의 배경색 변경 */
+    border: none;
+    transform: scale(1.02); /* 약간 확대 */
+    cursor: pointer; /* 클릭 가능한 커서 표시 */
 }
 
 .cart-btn {
