@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <head>
     <link rel="stylesheet" href="./resources/css/header_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <header>
@@ -14,7 +15,6 @@
         </div>
         
         <nav>
-            <a href="index.jsp">홈</a>
             <a href="shop.do">상점</a>
             <a href="community.jsp">커뮤니티</a>
             <a href="library.jsp">마이페이지</a>
@@ -25,8 +25,10 @@
 		    <c:choose>
 
 		        <c:when test="${not empty sessionScope.user}">
-       		        <a href="viewCart.do" class="cart-btn">장바구니</a>
-		            <span>Welcome, ${sessionScope.user.name}</span>
+			        <a href="viewCart.do" class="cart-btn-icon">
+					    <i class="fas fa-shopping-cart"></i>
+					</a>
+		            <span>${sessionScope.user.name}</span>
 		            <a href="logout.do">로그아웃</a>
 		            <!-- 장바구니로 이동 버튼 추가 -->
 		        </c:when>
@@ -36,7 +38,6 @@
 		        </c:otherwise>
 		    </c:choose>
 		</div>
-
     </div>
 </header>
 

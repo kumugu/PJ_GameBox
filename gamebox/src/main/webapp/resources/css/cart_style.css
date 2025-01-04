@@ -62,8 +62,8 @@ h1 {
 }
 
 .cart-table img.game-image {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border-radius: 5px;
 }
 
@@ -92,8 +92,8 @@ button:hover {
 }
 
 /* 삭제 버튼 */
-.delete-btn {
-    background-color: #e74c3c; /* 빨간색 */
+/* .delete-btn {
+    background-color: #e74c3c; 빨간색
     color: white;
     border: none;
     padding: 5px 10px;
@@ -103,8 +103,8 @@ button:hover {
 }
 
 .delete-btn:hover {
-    background-color: #c0392b; /* 더 진한 빨간색 */
-}
+    background-color: #c0392b; 더 진한 빨간색
+} */
 
 /* 총 금액 및 결제 버튼 */
 .cart-summary {

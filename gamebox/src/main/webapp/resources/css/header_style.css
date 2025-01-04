@@ -1,12 +1,31 @@
 @charset "UTF-8";
 
+
+
 .navbar {
-    background-color: #1f1f1f;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
+    justify-content: space-between; /* 왼쪽, 가운데, 오른쪽 요소 배치 */
+    align-items: center; /* 수직 가운데 정렬 */
+    padding: 10px 20px; /* 좌우 여백 */
+    background-color: #333; /* 배경색 */
+    background-color: #1f1f1f;
 }
+
+.logo {
+    text-align: left;
+}
+
+nav {
+    flex: 1; /* 가운데 영역 */
+}
+
+.user-info {
+    text-align: right;
+    color: white;
+}
+
+
+
 .navbar a {
     color: white;
     text-decoration: none;
@@ -23,28 +42,18 @@
     padding: 10px;
     border-radius: 5px;
 }
-.user-info:hover .dropdown-menu {
-    display: block;
+
+
+
+.cart-btn-icon {
+background-color: transparent;
+border: none;
+font-size: 24px; /* 아이콘 크기 조절 */
+   color: #fff;
+   cursor: pointer;
+   transition: color 0.3s ease;
 }
 
-.user-info {
-	color: white;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-
-.cart-btn {
-    display: inline-block;
-    padding: 8px 12px;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-left: 10px;
-    transition: background-color 0.3s;
-}
-
-.cart-btn:hover {
-    background-color: #0056b3;
+.cart-btn-icon:hover {
+    color: #4caf50; /* 호버 시 색상 */
 }
