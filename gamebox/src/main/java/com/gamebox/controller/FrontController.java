@@ -20,30 +20,30 @@ public class FrontController extends HttpServlet {
     	// Command 등록
 
     	// 관리자 계정 메뉴 
-    	commandMap.put("/admin_home.do", new com.gamebox.action.AdminHomeCommand());		// 관리자 메뉴 진입
-    	commandMap.put("/manage_users.do", new com.gamebox.action.ManageUsersCommand()); 	// 관리자 메뉴 - 회원관리(CRUD) 
-    	commandMap.put("/add_user_form.do", new com.gamebox.action.AddUserFormCommand());	// 관리자 메뉴 - 회원관리 - 회원추가 진입
-    	commandMap.put("/add_user.do", new com.gamebox.action.AddUserCommand()); 			// 관리자 메뉴 - 회원관리 - 회원추가 처리
-    	commandMap.put("/edit_user.do", new com.gamebox.action.EditUserCommand()); 			// 관리자 메뉴 - 회원관리 - 회원수정 진입
-    	commandMap.put("/manage_games.do", new com.gamebox.action.ManageGamesCommand());    // 관리자 메뉴 - 게임관리(CRUD)	
-    	commandMap.put("/manage_reviews.do", new com.gamebox.action.ManageReviewsCommand());  // 관리자 메뉴 - 리뷰관리	
-
+    	commandMap.put("/admin_home.do", new com.gamebox.action.AdminHomeCommand());			// 관리자 메뉴 진입
+    	commandMap.put("/manage_users.do", new com.gamebox.action.ManageUsersCommand()); 		// 관리자 메뉴 - 회원관리(CRUD) 
+    	commandMap.put("/add_user_form.do", new com.gamebox.action.AddUserFormCommand());		// 관리자 메뉴 - 회원관리 - 회원추가 진입
+    	commandMap.put("/add_user.do", new com.gamebox.action.AddUserCommand()); 				// 관리자 메뉴 - 회원관리 - 회원추가 처리
+    	commandMap.put("/edit_user.do", new com.gamebox.action.EditUserCommand()); 				// 관리자 메뉴 - 회원관리 - 회원수정 진입
+    	commandMap.put("/manage_games.do", new com.gamebox.action.ManageGamesCommand());  		// 관리자 메뉴 - 게임관리(CRUD)	
+    	commandMap.put("/manage_reviews.do", new com.gamebox.action.ManageReviewsCommand()); 	// 관리자 메뉴 - 리뷰관리	
 	    
     	// 일반 메뉴
-        commandMap.put("/user_home.do", new com.gamebox.action.UserHomeCommand());			// 메인 페이지
-        commandMap.put("/shop.do", new com.gamebox.action.ShopCommand());					// 상점 페이지
-        commandMap.put("/gameDetail.do", new com.gamebox.action.GameDetailCommand()); 		// 상점 상세 페이지
-        commandMap.put("/review.do", new com.gamebox.action.ReviewCommand());	
+        commandMap.put("/user_home.do", new com.gamebox.action.UserHomeCommand());				// 메인 페이지
+        commandMap.put("/shop.do", new com.gamebox.action.ShopCommand());						// 상점 페이지
+        commandMap.put("/gameDetail.do", new com.gamebox.action.GameDetailCommand()); 			// 상점 상세 페이지
+        commandMap.put("/review.do", new com.gamebox.action.ReviewCommand());					// 상점 상세 페이지 - 리뷰
          
-        commandMap.put("/addToCart.do", new com.gamebox.action.AddToCartCommand());
-        commandMap.put("/viewCart.do", new com.gamebox.action.ViewCartCommand());
+        commandMap.put("/addToCart.do", new com.gamebox.action.AddToCartCommand());				// 장바구니 - 추가
+        commandMap.put("/viewCart.do", new com.gamebox.action.ViewCartCommand());				// 장바구니 - 페이지
+        commandMap.put("/deleteCartItem.do", new com.gamebox.action.DeleteCartItemCommand());	// 장바구니 - 삭제
 
         
      	// 회원가입 및 로그인
-	    commandMap.put("/signup_form.do", new com.gamebox.action.SignupFormCommand());		// 회원가입 진입
-    	commandMap.put("/signup.do", new com.gamebox.action.SignupCommand());				// 회원가입 처리
-        commandMap.put("/login.do", new com.gamebox.action.LoginCommand());					// 로그인
-        commandMap.put("/logout.do", new com.gamebox.action.LogoutCommand());				// 로그아웃
+	    commandMap.put("/signup_form.do", new com.gamebox.action.SignupFormCommand());			// 회원가입 진입
+    	commandMap.put("/signup.do", new com.gamebox.action.SignupCommand());					// 회원가입 처리
+        commandMap.put("/login.do", new com.gamebox.action.LoginCommand());						// 로그인
+        commandMap.put("/logout.do", new com.gamebox.action.LogoutCommand());					// 로그아웃
 
     }
 

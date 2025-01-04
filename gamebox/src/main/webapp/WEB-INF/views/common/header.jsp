@@ -21,11 +21,14 @@
             <a href="support.jsp">지원</a>
         </nav>
         
-	     <div class="user-info">
+		<div class="user-info">
 		    <c:choose>
+
 		        <c:when test="${not empty sessionScope.user}">
+       		        <a href="viewCart.do" class="cart-btn">장바구니</a>
 		            <span>Welcome, ${sessionScope.user.name}</span>
 		            <a href="logout.do">로그아웃</a>
+		            <!-- 장바구니로 이동 버튼 추가 -->
 		        </c:when>
 		        <c:otherwise>
 		            <a href="login.do" class="login-btn">로그인</a>
