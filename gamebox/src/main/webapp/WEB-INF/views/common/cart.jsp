@@ -21,7 +21,7 @@
             <table class="cart-table">
                 <thead>
                     <tr>
-                        <th>게임 ID</th>
+                        <th>이미지</th>
                         <th>게임 제목</th>
                         <th>가격</th>
                         <th>추가 날짜</th>
@@ -32,7 +32,11 @@
                     <!-- 장바구니 항목 출력 -->
                     <c:forEach var="item" items="${cartItems}">
                         <tr>
-                            <td>${item.gameId}</td>
+                            <td>
+                                <!-- 이미지 추가 -->
+                                <img src="${pageContext.request.contextPath}${item.imagePath}" alt="${item.gameTitle}" class="game-image">
+                                
+                            </td>
                             <td>${item.gameTitle}</td>
                             <td>₩${item.gamePrice}</td>
                             <td>${item.addedDate}</td>

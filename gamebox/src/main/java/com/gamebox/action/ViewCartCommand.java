@@ -25,11 +25,12 @@ public class ViewCartCommand implements Command {
 
         List<CartItemDTO> cartItems = new ArrayList<>();
         try (Connection conn = DBConnection.getConnection()) {
-        	String query = "SELECT c.ID AS cartId, g.GAME_ID AS gameId, g.TITLE AS gameTitle, g.PRICE AS gamePrice, c.ADDED_DATE AS addedDate " +
-                    "FROM CART c " +
-                    "JOIN GAMES g ON c.GAME_ID = g.GAME_ID " +
-                    "WHERE c.USER_ID = ?";
-        	System.out.println("Executing query: " + query);
+            String query = "SELECT c.ID AS cartId, g.GAME_ID AS gameId, g.TITLE AS gameTitle, g.PRICE AS gamePrice, " +
+                           "c.ADDED_DATE AS addedDate, g.IMAGE_PATH AS imagePath " +
+                           "FROM CART c " +
+                           "JOIN GAMES g ON c.GAME_ID = g.GAME_ID " +
+                           "WHERE c.USER_ID = ?";
+            System.out.println("Executing query: " + query);
 
             try (PreparedStatement stmt = conn.prepareStatement(query)) {
                 stmt.setInt(1, userId);
@@ -41,6 +42,7 @@ public class ViewCartCommand implements Command {
                         item.setGameTitle(rs.getString("gameTitle"));
                         item.setGamePrice(rs.getDouble("gamePrice"));
                         item.setAddedDate(rs.getDate("addedDate"));
+                        item.setImagePath(rs.getString("imagePath")); // 이미지 경로 추가
                         cartItems.add(item);
                     }
                 }

@@ -61,6 +61,14 @@ h1 {
     color: #e0e0e0; /* 밝은 회색 */
 }
 
+.cart-table img.game-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+}
+
+
+
 /* 빈 장바구니 메시지 */
 p {
     text-align: center;
