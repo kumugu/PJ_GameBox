@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+/* 별점 입력 */
+.star-rating {
+    direction: rtl; /* 별점을 오른쪽에서 왼쪽으로 표시 */
+    font-size: 2rem;
+    unicode-bidi: bidi-override;
+    display: inline-flex;
+    gap: 5px;
+}
+
+.star-rating input[type="radio"] {
+    display: none; /* 라디오 버튼 숨기기 */
+}
+
+.star-rating label {
+    color: #ccc; /* 기본 별 색상 */
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.star-rating label:before {
+    content: "★"; /* 별 문자 */
+}
+
+.star-rating input[type="radio"]:checked ~ label {
+    color: #ffc107; /* 체크된 별 색상 (노란색) */
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #ffc107; /* 마우스 호버 시 색상 변경 */
+}
+
+
+/* 별점 표시 (리뷰 보기) */
+.star-rating-display {
+    display: inline-flex;
+    gap: 5px;
+}
+
+.star-rating-display .star {
+    color: #ccc; /* 기본 별 색상 */
+    font-size: 1.5rem;
+}
+
+.star-rating-display .star.filled {
+    color: #ffc107; /* 선택된 별 색상 */
+}
+

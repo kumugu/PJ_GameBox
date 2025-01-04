@@ -9,15 +9,7 @@
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 
-<div class="games" align="center">
-    <img src="./resources/image/game1.jpg" alt="Game 1: God of War">
-    <img src="./resources/image/game2.jpg" alt="Game 2: Metaphor">
-    <img src="./resources/image/game3.jpg" alt="Game 3: Satisfactory">
-    <img src="./resources/image/game4.jpg" alt="Game 4: Forza Horizon 5">
-    <img src="./resources/image/game5.jpg" alt="Game 5: Ghost of Tsushima">
-    <img src="./resources/image/game6.jpg" alt="Game 6: Stardew Valley">
-</div>
-
+<!-- 게임 목록 -->
 <div class="game-list">
     <table align="center" class="game-table">
         <thead>
@@ -33,29 +25,28 @@
         </thead>
         <tbody>
             <c:forEach var="game" items="${gameList}">
-				<tr class="game-row" onclick="window.location.href='${pageContext.request.contextPath}/gameDetail.do?gameId=${game.gameId}'">
-				    <td>
-				        <img src="${pageContext.request.contextPath}${game.imagePath}" alt="${game.title}" class="game-image">
-				    </td>
-				    <td>${game.title}</td>
-				    <td>${game.genre}</td>
-				    <td>${game.releaseDate}</td>
-				    <td>${game.rating}</td>
-				    <td>₩${game.price}</td>
-				    <td><button class="cart-btn" onclick="addToCart('${game.gameId}'); event.stopPropagation();">장바구니에 추가</button></td>
-				</tr>
+                <tr class="game-row" onclick="window.location.href='${pageContext.request.contextPath}/gameDetail.do?gameId=${game.gameId}'">
+                    <td>
+                        <img src="${pageContext.request.contextPath}${game.imagePath}" alt="${game.title}" class="game-image">
+                    </td>
+                    <td>${game.title}</td>
+                    <td>${game.genre}</td>
+                    <td>${game.releaseDate}</td>
+                    <td>${game.rating}</td>
+                    <td>₩${game.price}</td>
+                    <td>
+                        <!-- 장바구니 추가 버튼 -->
+                        <form action="${pageContext.request.contextPath}/cart.do" method="post" style="display:inline;">
+                            <input type="hidden" name="gameId" value="${game.gameId}">
+                            <button type="submit" class="cart-btn">장바구니에 추가</button>
+                        </form>
+                    </td>
+                </tr>
             </c:forEach>
         </tbody>
     </table>
 </div>
 
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
-
-<script>
-    function addToCart(gameId) {
-        alert("게임 ID " + gameId + "가 장바구니에 추가되었습니다.");
-        // AJAX 요청으로 서버에 장바구니 추가 로직 구현 가능
-    }
-</script>
 </body>
 </html>

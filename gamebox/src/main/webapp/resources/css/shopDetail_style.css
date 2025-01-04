@@ -99,3 +99,77 @@ body {
 }
 
 
+
+
+/* 공통 컨테이너 */
+.content-container {
+	align-content: center;
+	width: 800px;
+    max-width: 800px; /* 두 섹션의 공통 너비 설정 */
+    margin: 50px auto; /* 중앙 정렬 */
+    padding: 20px;
+}
+
+/* 리뷰 섹션 */
+.review-section {
+    margin-top: 40px; /* 상세 정보와의 간격 */
+    background-color: #2b2b2b; /* 배경색 */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.review-section h2 {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#reviewForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#reviewForm textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+    background-color: #1f1f1f;
+    color: #fff;
+}
+
+#reviewForm button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#reviewForm button:hover {
+    background-color: #45a049;
+}
+
+.review-list {
+    margin-top: 20px;
+}
+
+.review-item {
+    padding: 10px;
+    background-color: #242424;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.review-item p {
+    margin: 5px 0;
+}
+
+

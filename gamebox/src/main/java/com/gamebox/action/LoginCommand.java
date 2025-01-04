@@ -2,6 +2,7 @@ package com.gamebox.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import com.gamebox.dao.UserDAO;
 import com.gamebox.dto.UserDTO;
 
@@ -21,7 +22,14 @@ public class LoginCommand implements Command {
         UserDTO user = dao.loginUser(email, password);
 
         if (user != null) {
-            request.getSession().setAttribute("user", user);
+            HttpSession session = request.getSession();
+            
+            // 사용자 정보를 세션에 저장
+            session.setAttribute("user", user); // 전체 UserDTO 객체 저장
+            session.setAttribute("loggedInUserId", user.getUserId()); // 사용자 ID
+            session.setAttribute("loggedInUserName", user.getName()); // 사용자 이름
+            session.setAttribute("loggedInUserRole", user.getRole()); // 사용자 역할
+
             System.out.println("로그인 성공: " + user.getEmail());
             System.out.println("사용자 역할: [" + (user.getRole() != null ? user.getRole() : "UNKNOWN") + "]");
 
@@ -33,6 +41,7 @@ public class LoginCommand implements Command {
                 System.out.println("일반 사용자 계정으로 로그인");
                 return "user_home.do";
             }
+
         } else {
             System.out.println("로그인 실패: " + email);
             request.setAttribute("error", "이메일 또는 비밀번호가 잘못되었습니다.");

@@ -11,7 +11,7 @@
 	    <img src="./resources/image/banner.jpg" alt="Main Banner">
 	    <div class="banner-text">
 	        <h1>겨울 세일!</h1>
-	        <p>지금 바로 할인된 게임을 만나보세요!!</p>
+	        <p>지금 바로 할인된 게임을 만나보세요!!!</p>
 	    </div>
 	</div>
 

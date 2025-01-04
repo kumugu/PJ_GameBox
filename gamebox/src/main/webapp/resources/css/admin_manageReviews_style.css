@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+/* 공통 스타일 */
+body { 
+    background-color: #333; 
+    color: #333;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* 폼 컨테이너 */
+.form-container {
+    width: 100%;
+    max-width: 900px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* 검색 폼 */
+.search-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-form input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background-color: #0056b3;
+}
+
+/* 리뷰 목록 테이블 */
+.review-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.review-table th, .review-table td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.review-table th {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: bold;
+}
+
+.review-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.review-table tr:hover {
+    background-color: #e9ecef;
+}
+
+.review-table td {
+    word-break: break-word; /* 내용이 길 경우 줄바꿈 처리 */
+    color: #333;
+}
+
+/* 버튼 스타일 */
+.btn {
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+/* 경고 메시지 */
+.alert {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #ffcccc;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* 공통 입력 필드 */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
