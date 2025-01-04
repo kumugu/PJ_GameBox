@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="./resources/css/style.css">
     <link rel="stylesheet" href="./resources/css/shopDetail_style.css">
     <link rel="stylesheet" href="./resources/css/star_style.css">
+    <link rel="stylesheet" href="./resources/css/cart_modal_style.css">
+   
+   	<script src="./resources/js/cart_ajax.js"></script>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
@@ -22,7 +25,7 @@
                 <span class="discount">-10%</span>
                 <span class="current-price">₩${game.price}</span>
             </div>
-            <button class="cart-btn" onclick="addToCart('${game.gameId}')">장바구니에 추가</button>
+            <button class="cart-btn" onclick="addToCart('${game.gameId}'); event.stopPropagation();">장바구니에 추가</button>
         </div>
         <p><strong>설명:</strong> ${game.description}</p>
         <p><strong>최소 사양</strong></p>
@@ -30,6 +33,17 @@
         <p><strong>권장 사양</strong></p>
         <pre>${game.recRequirements}</pre>
     </div>
+
+	<!-- 모달 구조 -->
+	<div id="cart-modal" class="modal">
+	    <div class="modal-content">
+	        <p id="cart-modal-message">장바구니에 추가되었습니다!</p>
+	        <button class="cart-btn" onclick="goToCart()">장바구니로 이동</button>
+	        <button class="continue-btn" onclick="closeModal()">계속 쇼핑</button>
+	    </div>
+	</div>
+
+
 
     <!-- 리뷰 섹션 -->
 	<div class="review-section">

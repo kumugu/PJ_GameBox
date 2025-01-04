@@ -5,58 +5,9 @@
     <title>Shop | GameBox</title>
     <link rel="stylesheet" href="./resources/css/style.css">
     <link rel="stylesheet" href="./resources/css/shop_style.css">
-    <style>
-        /* 모달 스타일 */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .modal-content {
-            background-color: #2c3e50;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 30%;
-            border-radius: 10px;
-            color: white;
-            text-align: center;
-        }
-
-        .modal-content p {
-            margin-bottom: 20px;
-        }
-
-        .modal-content button {
-            margin: 5px;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .modal-content .cart-btn {
-            background-color: #4caf50;
-            color: white;
-        }
-
-        .modal-content .continue-btn {
-            background-color: #007bff;
-            color: white;
-        }
-
-        .modal-content button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <link rel="stylesheet" href="./resources/css/cart_modal_style.css">
+   
+   	<script src="./resources/js/cart_ajax.js"></script>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
@@ -114,60 +65,5 @@
 
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 
-<script>
-	function addToCart(gameId) {
-	    event.preventDefault();
-	    event.stopPropagation();
-	
-	    const contextPath = window.location.pathname.substring(0, window.location.pathname.indexOf('/', 1));
-	
-	    console.log('Sending gameId:', gameId);
-	
-	    fetch(contextPath + '/addToCart.do', {
-	        method: 'POST',
-	        headers: {
-	            'Content-Type': 'application/x-www-form-urlencoded',
-	        },
-	        body: 'gameId=' + gameId
-	    })
-	    .then(response => {
-	        console.log('Response status:', response.status);
-	        if (!response.ok) {
-	            throw new Error(`HTTP error ${response.status}`);
-	        }
-	        return response.json();
-	    })
-	    .then(data => {
-	        console.log('Response data:', data);
-	        if (data.success) {
-	            const modal = document.getElementById("cart-modal");
-	            const message = document.getElementById("cart-modal-message");
-	            message.innerText = data.message || "장바구니에 추가되었습니다!";
-	            modal.style.display = "block"; // 모달 표시
-	        } else {
-	            alert(data.message || "장바구니 추가 중 문제가 발생했습니다.");
-	        }
-	    })
-	    .catch(error => {
-	        console.error("AJAX 오류:", error);
-	        alert("서버와 통신 중 문제가 발생했습니다.");
-	    });
-	}
-	
-	function closeModal() {
-	    const modal = document.getElementById("cart-modal");
-	    modal.style.display = "none"; // "계속 쇼핑" 버튼 클릭 시 모달 닫기
-	}
-	
-	function goToCart() {
-	    const modal = document.getElementById("cart-modal");
-	    modal.style.display = "none"; // "장바구니 이동" 버튼 클릭 시 모달 닫기
-	    
-	    const contextPath = window.location.pathname.substring(0, window.location.pathname.indexOf('/', 1));
-	    window.location.href = contextPath + '/viewCart.do'; // 장바구니 페이지로 이동
-	}
-
-
-</script>
 </body>
 </html>
