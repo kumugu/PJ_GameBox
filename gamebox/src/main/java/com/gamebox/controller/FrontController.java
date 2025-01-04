@@ -27,6 +27,7 @@ public class FrontController extends HttpServlet {
     	commandMap.put("/edit_user.do", new com.gamebox.action.EditUserCommand()); 			// 관리자 메뉴 - 회원관리 - 회원수정 진입
     	commandMap.put("/manage_games.do", new com.gamebox.action.ManageGamesCommand());    // 관리자 메뉴 - 게임관리(CRUD)	
     	commandMap.put("/manage_reviews.do", new com.gamebox.action.ManageReviewsCommand());  // 관리자 메뉴 - 리뷰관리	
+
 	    
     	// 일반 메뉴
         commandMap.put("/user_home.do", new com.gamebox.action.UserHomeCommand());			// 메인 페이지
