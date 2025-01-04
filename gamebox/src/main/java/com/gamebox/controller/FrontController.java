@@ -33,7 +33,10 @@ public class FrontController extends HttpServlet {
         commandMap.put("/user_home.do", new com.gamebox.action.UserHomeCommand());			// 메인 페이지
         commandMap.put("/shop.do", new com.gamebox.action.ShopCommand());					// 상점 페이지
         commandMap.put("/gameDetail.do", new com.gamebox.action.GameDetailCommand()); 		// 상점 상세 페이지
-        commandMap.put("/review.do", new com.gamebox.action.ReviewCommand());				// 상점 상세 페이지 - 리뷰
+        commandMap.put("/review.do", new com.gamebox.action.ReviewCommand());	
+         
+        commandMap.put("/addToCart.do", new com.gamebox.action.AddToCartCommand());
+        commandMap.put("/viewCart.do", new com.gamebox.action.ViewCartCommand());
 
         
      	// 회원가입 및 로그인
@@ -42,7 +45,6 @@ public class FrontController extends HttpServlet {
         commandMap.put("/login.do", new com.gamebox.action.LoginCommand());					// 로그인
         commandMap.put("/logout.do", new com.gamebox.action.LogoutCommand());				// 로그아웃
 
-        
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -67,15 +69,11 @@ public class FrontController extends HttpServlet {
 
         if (command != null) {
             String view = command.execute(request, response);
-
-            // view가 null인지 확인
-            if (view == null || view.isEmpty()) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND, "View path not found");
-                return;
+            // JSON 응답의 경우 view가 null이어도 정상적인 케이스
+            if (view != null && !view.isEmpty()) {
+                RequestDispatcher dispatcher = request.getRequestDispatcher(view);
+                dispatcher.forward(request, response);
             }
-
-            RequestDispatcher dispatcher = request.getRequestDispatcher(view);
-            dispatcher.forward(request, response);
         } else {
             response.sendError(HttpServletResponse.SC_NOT_FOUND, "Command not found");
         }

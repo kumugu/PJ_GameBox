@@ -42,7 +42,10 @@
 				    <td>${game.releaseDate}</td>
 				    <td>${game.rating}</td>
 				    <td>₩${game.price}</td>
-				    <td><button class="cart-btn" onclick="addToCart('${game.gameId}'); event.stopPropagation();">장바구니에 추가</button></td>
+				    <td>
+					  	<button class="cart-btn" onclick="addToCart('${game.gameId}'); event.stopPropagation();">장바구니에 추가</button>
+					</td>
+
 				</tr>
             </c:forEach>
         </tbody>
@@ -52,10 +55,43 @@
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 
 <script>
-    function addToCart(gameId) {
-        alert("게임 ID " + gameId + "가 장바구니에 추가되었습니다.");
-        // AJAX 요청으로 서버에 장바구니 추가 로직 구현 가능
-    }
+	function addToCart(gameId) {
+	    event.preventDefault();
+	    event.stopPropagation();
+	    
+	    // 현재 페이지의 컨텍스트 경로를 동적으로 가져옴
+	    const contextPath = window.location.pathname.substring(0, window.location.pathname.indexOf('/', 1));
+	    
+	    console.log('Sending gameId:', gameId); // 디버깅용
+	    
+	    fetch(contextPath + '/addToCart.do', {
+	        method: 'POST',
+	        headers: {
+	            'Content-Type': 'application/x-www-form-urlencoded',
+	        },
+	        body: 'gameId=' + gameId
+	    })
+	    .then(response => {
+	        console.log('Response status:', response.status);
+	        if (!response.ok) {
+	            throw new Error(`HTTP error ${response.status}`);
+	        }
+	        return response.json();
+	    })
+	    .then(data => {
+	        console.log('Response data:', data);
+	        if (data.success) {
+	            alert(data.message || "장바구니에 추가되었습니다!");
+	        } else {
+	            alert(data.message || "장바구니 추가 중 문제가 발생했습니다.");
+	        }
+	    })
+	    .catch(error => {
+	        console.error("AJAX 오류:", error);
+	        alert("서버와 통신 중 문제가 발생했습니다.");
+	    });
+	}
+
 </script>
 </body>
 </html>
