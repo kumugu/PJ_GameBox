@@ -2,6 +2,7 @@ package com.gamebox.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import com.gamebox.dao.CartDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -45,6 +46,15 @@ public class PaymentSuccessCommand implements Command {
                         }
                     }
                 }
+            }
+
+            // 장바구니 비우기
+            CartDAO cartDAO = new CartDAO();
+            boolean isCleared = cartDAO.clearCartByUserId(userId);
+            if (isCleared) {
+                System.out.println("사용자의 장바구니가 성공적으로 비워졌습니다.");
+            } else {
+                System.out.println("사용자의 장바구니를 비우는 데 실패했습니다.");
             }
 
             // 결제 성공 화면으로 이동

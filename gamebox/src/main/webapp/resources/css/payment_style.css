@@ -1,0 +1,133 @@
+@charset "UTF-8";
+/* 기본 설정 */
+body {
+    background-color: #2c3e50; /* 어두운 배경 */
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 24px;
+    color: white;
+}
+
+/* 결제 컨테이너 */
+.payment-container {
+	align-items: center;
+    max-width: 600px;
+    margin: 0px auto;
+    background-color: #34495e;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 100px;
+    text-align: center;
+}
+
+/* 결제 상세 정보 */
+.payment-details {
+	align-items: center;
+    text-align: center;
+    background-color: #2c3e50;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.payment-details p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #e0e0e0;
+}
+
+.payment-details p span {
+    font-weight: bold;
+    color: #f1c40f; /* 금색 강조 */
+}
+
+.payment-actions {
+	align-items: center;
+    text-align: center;
+}
+
+/* 성공 메시지 */
+.success-message {
+    text-align: center;
+    font-size: 18px;
+    color: #2ecc71; /* 밝은 녹색 */
+    margin: 20px 0;
+}
+
+/* 버튼 스타일 */
+button {
+    padding: 10px 15px;
+    background-color: #3498db; /* 파란색 */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9; /* 더 진한 파란색 */
+}
+
+/* 돌아가기 버튼 */
+.btn-secondary {
+    background-color: #7f8c8d; /* 회색 */
+}
+
+.btn-secondary:hover {
+    background-color: #707b7c; /* 더 진한 회색 */
+}
+
+.kakao-pay-button {
+    background-color: #ffeb00; /* 카카오페이 시그니처 노란색 */
+    color: #000; /* 검정 텍스트 */
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px; /* 부드러운 모서리 */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    display: inline-block;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 버튼 그림자 */
+}
+
+.kakao-pay-button:hover {
+    background-color: #ffe500; /* 조금 더 진한 노란색 */
+    transform: scale(1.05); /* 버튼 크기 살짝 커짐 */
+}
+
+.kakao-pay-button:active {
+    background-color: #ffd700; /* 더 어두운 노란색 */
+    transform: scale(0.95); /* 버튼 크기 살짝 줄어듦 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 줄임 */
+}
+
+
+
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .payment-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}

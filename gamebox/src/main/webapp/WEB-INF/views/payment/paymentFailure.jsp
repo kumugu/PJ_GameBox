@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Payment|GameBox</title>
-    <link rel="stylesheet" href="./resources/css/payment.css">
+    <link rel="stylesheet" href="./resources/css/payment_style.css">
     <link rel="stylesheet" href="./resources/css/style.css">
 </head>
 

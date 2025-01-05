@@ -3,17 +3,36 @@
 <html>
 <head>
     <title>Payment | GameBox</title>
-    <link rel="stylesheet" href="./resources/css/payment.css">
+    <link rel="stylesheet" href="./resources/css/payment_style.css">
     <link rel="stylesheet" href="./resources/css/style.css">
 </head>
 
-<%@ include file="/WEB-INF/views/common/header.jsp" %>
 <body>
-    <h1>결제 진행 중</h1>
-    <p>결제 금액: ￦${totalPrice}</p>
+<%@ include file="/WEB-INF/views/common/header.jsp" %>
 
-    <!-- hidden input for totalAmount -->
-    <input type="hidden" id="totalAmount" value="${totalPrice}" />
+    <h1>결제 진행 중</h1>
+    
+    <div class="payment-container">
+
+        <!-- 결제 정보 -->
+        
+        <div class="payment-details">
+            <p>결제 금액: <span class="total-price">￦${totalPrice}</span></p>
+            <!-- hidden input for totalAmount -->
+            <input type="hidden" id="totalAmount" value="${totalPrice}" />
+        </div>
+
+		<!-- 결제 버튼 -->
+		<div class="payment-actions">
+		    <!-- 카카오페이 결제 버튼 -->
+		    <button onclick="requestPayment()" class="kakao-pay-button">카카오페이 결제</button>
+		    <form action="viewCart.do" method="get" class="cancel-form">
+		    <br>
+		        <button type="submit" class="btn btn-secondary">결제 취소</button>
+		    </form>
+		</div>
+
+    </div>
 
     <!-- 아임포트 스크립트 -->
     <script src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
@@ -41,14 +60,6 @@
         });
     }
     </script>
-
-    <!-- 결제 버튼 -->
-    <button onclick="requestPayment()" class="btn btn-primary">카카오페이로 결제하기</button>
-
-    <!-- 결제 취소 버튼 -->
-    <form action="viewCart.do" method="get">
-        <button type="submit" class="btn btn-secondary">결제 취소</button>
-    </form>
 </body>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </html>
