@@ -35,7 +35,6 @@
                             <td>
                                 <!-- 이미지 추가 -->
                                 <img src="${pageContext.request.contextPath}${item.imagePath}" alt="${item.gameTitle}" class="game-image">
-                                
                             </td>
                             <td>${item.gameTitle}</td>
                             <td>₩${item.gamePrice}</td>
@@ -62,6 +61,8 @@
             </c:forEach>
             <p>총 금액: <span class="total-price">₩${totalPrice}</span></p>
             <form action="checkout.do" method="post">
+                <!-- totalPrice 값을 폼 데이터로 전달 -->
+                <input type="hidden" name="totalPrice" value="${totalPrice}" />
                 <button type="submit" class="cart-btn checkout-btn">결제하기</button>
             </form>
         </div>

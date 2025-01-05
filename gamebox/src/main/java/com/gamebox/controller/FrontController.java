@@ -38,6 +38,12 @@ public class FrontController extends HttpServlet {
         commandMap.put("/viewCart.do", new com.gamebox.action.ViewCartCommand());				// 장바구니 - 페이지
         commandMap.put("/deleteCartItem.do", new com.gamebox.action.DeleteCartItemCommand());	// 장바구니 - 삭제
 
+        commandMap.put("/checkout.do", new com.gamebox.action.CheckoutCommand());				// 결제 - 결제 진행
+        commandMap.put("/paymentResult.do", new com.gamebox.action.PaymentResultCommand());		// 결제 - 결제 결과
+        commandMap.put("/verifyPayment.do", new com.gamebox.action.VerifyPaymentCommand()); 	// 결제 - 결제 검증
+        commandMap.put("/paymentSuccess.do", new com.gamebox.action.PaymentSuccessCommand());	// 결제 - 결제 완료
+
+
         
      	// 회원가입 및 로그인
 	    commandMap.put("/signup_form.do", new com.gamebox.action.SignupFormCommand());			// 회원가입 진입
