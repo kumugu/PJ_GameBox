@@ -25,8 +25,10 @@ public class FrontController extends HttpServlet {
     	commandMap.put("/add_user_form.do", new com.gamebox.action.AddUserFormCommand());		// 관리자 메뉴 - 회원관리 - 회원추가 진입
     	commandMap.put("/add_user.do", new com.gamebox.action.AddUserCommand()); 				// 관리자 메뉴 - 회원관리 - 회원추가 처리
     	commandMap.put("/edit_user.do", new com.gamebox.action.EditUserCommand()); 				// 관리자 메뉴 - 회원관리 - 회원수정 진입
-    	commandMap.put("/manage_games.do", new com.gamebox.action.ManageGamesCommand());  		// 관리자 메뉴 - 게임관리(CRUD)	
-    	commandMap.put("/manage_reviews.do", new com.gamebox.action.ManageReviewsCommand()); 	// 관리자 메뉴 - 리뷰관리	
+    	commandMap.put("/manage_games.do", new com.gamebox.action.ManageGamesCommand());  		// 관리자 메뉴 - 게임 관리(CRUD)	
+    	commandMap.put("/manage_reviews.do", new com.gamebox.action.ManageReviewsCommand()); 	// 관리자 메뉴 - 리뷰 관리	
+    	commandMap.put("/manage_community.do", new com.gamebox.action.ManageCommunityCommand());// 관리자 메뉴 - 커뮤니티 관리	
+    	commandMap.put("/manage_support.do", new com.gamebox.action.ManageSupportCommand()); 	// 관리자 메뉴 - 문의 관리	
 	    
     	// 일반 메뉴
         commandMap.put("/user_home.do", new com.gamebox.action.UserHomeCommand());				// 메인 페이지
@@ -42,8 +44,10 @@ public class FrontController extends HttpServlet {
         commandMap.put("/paymentResult.do", new com.gamebox.action.PaymentResultCommand());		// 결제 - 결제 결과
         commandMap.put("/verifyPayment.do", new com.gamebox.action.VerifyPaymentCommand()); 	// 결제 - 결제 검증
         commandMap.put("/paymentSuccess.do", new com.gamebox.action.PaymentSuccessCommand());	// 결제 - 결제 완료
-
-
+        
+        commandMap.put("/mypage.do", new com.gamebox.action.MypageCommand());					// 마이 페이지
+        commandMap.put("/community.do", new com.gamebox.action.CommunityCommand());				// 커뮤니티
+        commandMap.put("/support.do", new com.gamebox.action.SupportCommand());					// 지원
         
      	// 회원가입 및 로그인
 	    commandMap.put("/signup_form.do", new com.gamebox.action.SignupFormCommand());			// 회원가입 진입

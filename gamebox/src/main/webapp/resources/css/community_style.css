@@ -1,0 +1,131 @@
+@charset "UTF-8";
+
+body { 
+    background-color: #333; 
+    color: white;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.community-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #242b34;
+    border-radius: 5px;
+}
+
+.community-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+    text-align: center;
+    background-color: #242b34;
+}
+
+
+.community-table th {
+    background-color: #2c3e50;
+    color: white;
+}
+
+.community-table td a {
+    color: #1E90FF; /* 밝은 파란색 */
+    text-decoration: none;
+}
+
+.community-table td a:hover {
+    color: #FF6347; /* 호버 시 토마토 색상 */
+}
+
+
+.community-table th, .community-table td {
+    border: 1px solid #2c3e50;
+    padding: 10px;
+    color: white;
+}
+
+.community-table th {
+    background-color: #2c3e50;
+}
+
+.community-table td {
+    background-color: #2c3e50;
+}
+
+.community-table tr:hover {
+    background-color: #8080c0; /* 행의 배경색 변경 */
+    transform: scale(1.02); /* 약간 확대 */
+    cursor: pointer; /* 클릭 가능한 커서 표시 */
+}
+
+form {
+    display: flex;
+    flex-direction: column; /* 수직 정렬 */
+    align-items: center; /* 수평 중앙 정렬 */
+}
+
+.form-group {
+    margin: 15px 0;
+    width: 50%;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.btn {
+    background-color: #0080c0;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 50%; /* form-group에 맞춰 버튼 너비 조정 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    text-decoration: none; /* 밑줄 제거 */
+}
+
+.btn:hover {
+    background-color: #218838;
+}
+.actions {
+    margin-top: 20px;
+    text-align: right;
+    text-decoration: none; /* 밑줄 제거 */
+}
+
+.actions .btn {
+    margin-left: 10px;
+    text-decoration: none; /* 밑줄 제거 */
+}
+
+.post-detail-container {
+    padding: 20px;
+    background-color: #242b34;
+    border-radius: 5px;
+}
+
+.post-detail-container h1 {
+    margin-bottom: 20px;
+}
+
+.post-detail-container p {
+    margin: 10px 0;
+}
+
+.post-content {
+    white-space: pre-wrap; /* 줄 바꿈을 유지합니다 */
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #2c3e50;
+    border-radius: 5px;
+}

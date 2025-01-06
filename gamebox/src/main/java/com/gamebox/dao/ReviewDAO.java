@@ -26,7 +26,7 @@ public class ReviewDAO {
 	                ReviewDTO review = new ReviewDTO();
 	                review.setReviewId(rs.getInt("REVIEW_ID"));
 	                review.setUserId(rs.getInt("USER_ID"));
-	                review.setUserName(rs.getString("USER_NAME")); // 작성자 이름
+	                review.setUserName(rs.getString("USER_NAME"));
 	                review.setGameId(rs.getInt("GAME_ID"));
 	                review.setRating(rs.getInt("RATING"));
 	                review.setContent(rs.getString("CONTENT"));
@@ -37,8 +37,45 @@ public class ReviewDAO {
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    }
+
 	    return reviews;
 	}
+
+	
+	public List<ReviewDTO> getReviewsByUserId(int userId) {
+	    String sql = "SELECT r.REVIEW_ID, r.USER_ID, r.GAME_ID, g.TITLE as GAME_TITLE, " +
+	                 "r.RATING, r.CONTENT, r.CREATED_AT " +
+	                 "FROM REVIEWS r " +
+	                 "INNER JOIN GAMES g ON r.GAME_ID = g.GAME_ID " +
+	                 "WHERE r.USER_ID = ? " +
+	                 "ORDER BY r.CREATED_AT DESC";
+	                 
+	    List<ReviewDTO> reviews = new ArrayList<>();
+
+	    try (Connection conn = DBConnection.getConnection();
+	         PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+	        pstmt.setInt(1, userId);
+	        try (ResultSet rs = pstmt.executeQuery()) {
+	            while (rs.next()) {
+	                ReviewDTO review = new ReviewDTO();
+	                review.setReviewId(rs.getInt("REVIEW_ID"));
+	                review.setUserId(rs.getInt("USER_ID"));
+	                review.setGameId(rs.getInt("GAME_ID"));
+	                review.setGameTitle(rs.getString("GAME_TITLE"));
+	                review.setRating(rs.getInt("RATING"));
+	                review.setContent(rs.getString("CONTENT"));
+	                review.setCreatedAt(rs.getDate("CREATED_AT"));
+	                reviews.add(review);
+	            }
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return reviews;
+	}
+
 	
 	// 리뷰 가져오기
     public ReviewDTO getUserReviewForGame(int userId, int gameId) {

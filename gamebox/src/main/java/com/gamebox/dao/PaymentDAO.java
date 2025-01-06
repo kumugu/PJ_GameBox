@@ -3,6 +3,9 @@ package com.gamebox.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.gamebox.dto.PaymentDTO;
 import com.gamebox.util.DBConnection;
 
@@ -68,5 +71,31 @@ public class PaymentDAO {
             e.printStackTrace();
         }
         return null; // 결제 정보 없음
+    }
+    
+    
+    public List<PaymentDTO> getPaymentsByUserId(Integer userId) {
+        String sql = "SELECT payment_id, user_id, amount, status, created_at FROM Payments WHERE user_id = ?";
+        List<PaymentDTO> payments = new ArrayList<>();
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, userId);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    PaymentDTO payment = new PaymentDTO();
+                    payment.setPaymentId(rs.getInt("payment_id"));
+                    payment.setUserId(rs.getInt("user_id"));
+                    payment.setAmount(rs.getDouble("amount"));
+                    payment.setStatus(rs.getString("status"));
+                    payment.setCreatedAt(rs.getTimestamp("created_at").toLocalDateTime());
+                    payments.add(payment);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return payments;
     }
 }

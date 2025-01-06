@@ -20,6 +20,8 @@
 	                <li><a href="manage_users.do">회원 관리</a></li>
 	                <li><a href="manage_games.do">게임 관리</a></li>
 	                <li><a href="manage_reviews.do">리뷰 관리</a></li>
+	                <li><a href="manage_support.do">문의 관리</a></li>
+    	            <li><a href="manage_community.do">커뮤니티 관리</a></li>
 	            </ul>
 	        </li>
 	        <li>

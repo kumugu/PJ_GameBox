@@ -3,6 +3,7 @@ package com.gamebox.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -98,7 +99,7 @@ public class UserDAO {
 
     // 특정 회원 조회
     public UserDTO getUserById(int userId) throws Exception {
-        String sql = "SELECT * FROM Users WHERE user_id = ?";
+        String sql = "SELECT user_id, email, password, name, role, created_at FROM Users WHERE user_id = ?";
 
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -108,9 +109,11 @@ public class UserDAO {
                 if (rs.next()) {
                     UserDTO user = new UserDTO();
                     user.setUserId(rs.getInt("user_id"));
-                    user.setName(rs.getString("name"));
                     user.setEmail(rs.getString("email"));
+                    user.setPassword(rs.getString("password"));
+                    user.setName(rs.getString("name"));
                     user.setRole(rs.getString("role"));
+                    user.setCreatedAt(rs.getDate("created_at")); // Date 타입으로 설정
                     return user;
                 }
             }
@@ -118,6 +121,8 @@ public class UserDAO {
 
         return null;
     }
+
+
     
     // 회원 수정
     public void updateUser(UserDTO user) throws Exception {
@@ -145,9 +150,6 @@ public class UserDAO {
             pstmt.executeUpdate();
         }
     }
-    
-    
-    
-    
+
 
 }

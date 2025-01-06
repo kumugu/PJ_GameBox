@@ -16,9 +16,9 @@
         
         <nav>
             <a href="shop.do">상점</a>
-            <a href="community.jsp">커뮤니티</a>
-            <a href="library.jsp">마이페이지</a>
-            <a href="support.jsp">지원</a>
+  			<a href="community.do?action=list">커뮤니티</a>
+            <a href="mypage.do">마이페이지</a>
+            <a href="support.do?action=list">지원</a>
         </nav>
         
 		<div class="user-info">

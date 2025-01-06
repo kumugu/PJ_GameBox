@@ -1,0 +1,137 @@
+@charset "UTF-8";
+/* 지원 페이지 전체 스타일 */
+.support-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.support-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+/* 공지사항 스타일 */
+.notice {
+    background-color: #f9f9f9;
+    border-left: 4px solid #4CAF50;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+/* 카테고리 버튼 스타일 */
+.categories {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.categories button {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    margin: 5px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.categories button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.categories button.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* FAQ 섹션 스타일 */
+
+.no-data {
+	color: white;
+}
+.faq-section {
+    margin-top: 20px;
+}
+
+.faq-section h2 {
+    text-align: left;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    font-size: 18px;
+    color: white;
+}
+
+/* FAQ 리스트 스타일 */
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.faq-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* FAQ 질문 스타일 */
+.faq-question {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.category-badge {
+    background-color: #4CAF50;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+/* FAQ 답변 스타일 */
+.faq-answer {
+    margin-top: 10px;
+    display: none;
+    color: #666;
+    font-size: 14px;
+}
+
+/* "문의 작성하기" 버튼 스타일 */
+.actions {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.actions .btn {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.actions .btn:hover {
+    background-color: #45a049;
+}
