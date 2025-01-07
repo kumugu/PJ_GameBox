@@ -36,8 +36,8 @@
 
 ## 📂 프로젝트 구조
 
-```
-bash코드 복사GameBox/
+```bash
+GameBox/
 ├── src/
 │   ├── com/gamebox/controller/    # FrontController 및 Command 패턴
 │   ├── com/gamebox/dao/           # 데이터베이스 접근 객체
@@ -59,8 +59,8 @@ bash코드 복사GameBox/
 
 ### 1. 클론 및 환경 설정
 
-```
-bash코드 복사git clone https://github.com/yourusername/GameBox.git
+```bash
+git clone https://github.com/yourusername/GameBox.git
 cd GameBox
 ```
 
@@ -68,8 +68,8 @@ cd GameBox
 
 - **Oracle DB XE**를 설치 후 아래 SQL로 테이블 생성:
 
-```
-sql코드 복사CREATE TABLE USERS (
+```sql
+CREATE TABLE USERS (
     user_id NUMBER PRIMARY KEY,
     email VARCHAR2(255) UNIQUE,
     password VARCHAR2(255),
@@ -78,7 +78,7 @@ sql코드 복사CREATE TABLE USERS (
     created_at DATE DEFAULT SYSDATE
 );
 
--- 추가 테이블 생성은 프로젝트 내 SQL 스크립트 참고
+-- 추가 테이블 생성은 DB설정 문서 참고
 ```
 
 ### 3. 프로젝트 설정
